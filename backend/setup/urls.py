@@ -1,9 +1,16 @@
 
 from django.contrib import admin
-from django.urls import path
-from controle.views import controles
+from django.urls import path, include
+from controle.views import ReceitasViewSet, DespesasViewSet
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register('receitas', ReceitasViewSet, basename='Receitas')
+router.register('despesas', DespesasViewSet, basename='Despesas')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('controles/', controles),
+    path('', include(router.urls)),
 ]
+

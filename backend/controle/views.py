@@ -1,6 +1,13 @@
-from django.http import JsonResponse
+from rest_framework import viewsets
+from controle.models import Receita, Despesa
+from controle.serializer import ReceitaSerializer, DespesaSerializer
 
-def controles(request):
-    if request.method == 'GET':
-        controle = {'id': 1, 'nome':'teste'}
-        return JsonResponse(controle)
+class ReceitasViewSet(viewsets.ModelViewSet):
+    """"Exibindo todas as receitas"""
+    queryset = Receita.objects.all()
+    serializer_class = ReceitaSerializer
+
+class DespesasViewSet(viewsets.ModelViewSet):
+    """"Exibindo todas as despesas"""
+    queryset = Despesa.objects.all()
+    serializer_class = DespesaSerializer    
