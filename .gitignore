@@ -422,3 +422,7 @@ fastlane/screenshots
 Packages/
 PostgreSQL.xcodeproj/
 .DS_Store
+
+#conf
+conf/
+.cnf
